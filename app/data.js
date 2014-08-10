@@ -18,29 +18,49 @@ Game.techs = [
         'farm': 0
     },
 }
-]
-Game.techs_unlocked = {} // for fast lookup, presence in hash indicates the tech is unlocked
+];
+
+Game.techs_unlocked = {}; // for fast lookup, presence in hash indicates the tech is unlocked
 
 Game.buildings = [
     {
     'name': 'hut',
     'title': 'Hut',
-    'uses': { // resources consumed per tick
+    'consumes': { // resources consumed per tick
         'food': 0
     },
-    'resources': { // resources required to build
-        'food': 0
-    },
-    'requires': [ // techs required to build, list of names
-
-    ],
     'produces': { // resources produced
         'food': 1
     },
-    'provides': [ // techs provided
+    'resources': { // resources required to build
+        'wood': 1
+    },
+    'requires': [ // techs required to build, list of names
     ],
-    'count': 0
+    'provides': [ // techs provided
+    ]
+},
+{
+    'name': 'sawmill',
+    'title': 'Sawmill',
+    'consumes': {'food': 1},
+    'produces': {'wood': 1},
+    'resources': {'food': 1},
+    'requires': [],
+    'provides': []
+},
+{
+    'name': 'mine',
+    'title': 'Mine',
+    'consumes': {'food': 1, 'wood': 1},
+    'produces': {'ore': 1},
+    'resources': {'food': 10, 'wood': 10},
+    'requires': [],
+    'provides': []
 }
-]
 
-Game.buildings_unlocked = {} // building => count
+];
+
+Game.buildings_unlocked = { // building => count
+'hut' => 1
+};
