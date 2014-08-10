@@ -61,6 +61,6 @@ Game.buildings = [
 
 ];
 
-Game.buildings_unlocked = { // building => count
-'hut' => 1
+Game.buildings_unlocked = { // building: count
+'hut': 1
 };
