@@ -1,2 +1,4 @@
-Game.show_techs = function() {
+Game.techs = {
+    show: function() {
+    }
 }

@@ -1,9 +1,9 @@
 Game.main = function() {
-    Game.update_resources();
-    Game.show_buildings();
-    Game.show_resources();
-    Game.show_techs();
-    window.setTimeout(Game.main, 100);
+    Game.resources.update();
+    Game.buildings.show();
+    Game.resources.show();
+    Game.techs.show();
+    window.setTimeout(Game.main, 300);
 }
 
 window.setTimeout(Game.main, 1000);
