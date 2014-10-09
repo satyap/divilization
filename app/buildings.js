@@ -1,5 +1,13 @@
 Game.buildings = {
     show: function() {
+        var list = document.getElementById('building_list');
+        var html = '';
+
+        for(r in Game.data.buildings_unlocked) {
+           html += Game.data.building_titles[r] + ': ' + Game.data.buildings_unlocked[r] + '<br/>';
+        }
+
+        list.innerHTML = html;
     },
 
     can_consume: function(building) {

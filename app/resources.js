@@ -11,13 +11,16 @@ Game.resources = {
     },
 
     update: function() {
-        var length = Game.data.buildings.length;
+        var gd = Game.data;
+        var length = gd.buildings.length;
         for(var i=0; i < length; i++) {
-            var b = Game.data.buildings[i];
-            if(Game.data.buildings_unlocked[b.name]) {
-                if(Game.buildings.can_consume(b)) {
-                    Game.buildings.consume(b);
-                    Game.buildings.produce(b);
+            var b = gd.buildings[i];
+            if(gd.buildings_unlocked[b.name]) {
+                for(var i = 0; i < gd.buildings_unlocked[b.name]; i++) {
+                    if(Game.buildings.can_consume(b)) {
+                        Game.buildings.consume(b);
+                        Game.buildings.produce(b);
+                    }
                 }
             }
         }

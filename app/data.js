@@ -63,5 +63,16 @@ Game.data = {
 
     buildings_unlocked: { // building: count
         'hut': 1
-    }
+    },
+
+    building_titles: {} // building name to title lookup
+
 };
+// memo-ize building names
+Game.data.building_titles = {};
+for(var i=0; i < Game.data.buildings.length; i++) {
+    var b = Game.data.buildings[i];
+    console.log(b);
+    Game.data.building_titles[b.name] = b.title;
+}
+
