@@ -6,4 +6,3 @@ Game.main = function() {
     window.setTimeout(Game.main, 300);
 }
 
-window.setTimeout(Game.main, 1000);
