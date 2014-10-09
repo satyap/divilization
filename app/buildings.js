@@ -4,18 +4,23 @@ Game.buildings = {
         var html = '';
 
         for(r in Game.data.buildings_unlocked) {
-           html += Game.data.building_titles[r] + ': ' + Game.data.buildings_unlocked[r] + '<br/>';
+           html += Game.data.buildings_by_name[r].name + ': ' + Game.data.buildings_unlocked[r];
+           html += '<a href="#" onclick="Game.buildings.buy(\'' + r + '\')">build</a>'
         }
 
         list.innerHTML = html;
     },
 
     can_consume: function(building) {
-        consumes = 1;
-        for(var c in building.consumes) {
-            if(building.consumes[c] > Game.data.resources[c] ) { consumes = 0; }
+        return Game.buildings.resources_exist(building, 'consumes');
+    },
+
+    resources_exist: function(building, attribute) {
+        var exist = 1;
+        for(var c in building[attribute]) {
+            if(building[attribute][c] > Game.data.resources[c] ) { exist = 0; }
         }
-        return consumes;
+        return exist;
     },
 
     consume: function(building) {
@@ -29,4 +34,14 @@ Game.buildings = {
             Game.data.resources[c] += building.produces[c];
         }
     },
+
+    buy: function(name) {
+        // only if the resources are met
+        var building = Game.data.buildings_by_name[name];
+        if(Game.buildings.resources_exist(building, "resources")) {
+            if(Game.data.buildings_unlocked[name]!=undefined) {
+                Game.data.buildings_unlocked[name] ++;
+            }
+        }
+    }
 }

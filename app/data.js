@@ -40,6 +40,15 @@ Game.data = {
         'provides': [ // techs provided
         ]
     },
+        {
+        'name': 'woodshack',
+        'title': 'Wood shack',
+        'consumes': { 'food': 0.9 },
+        'produces': { 'wood': 0.1 },
+        'resources': { 'food': 5 },
+        'requires': [ ],
+        'provides': [ ]
+    },
     {
         'name': 'sawmill',
         'title': 'Sawmill',
@@ -62,17 +71,14 @@ Game.data = {
     ],
 
     buildings_unlocked: { // building: count
-        'hut': 1
+        'hut': 1,
+        'woodshack': 0
     },
 
-    building_titles: {} // building name to title lookup
-
 };
-// memo-ize building names
-Game.data.building_titles = {};
+Game.data.buildings_by_name = {};
 for(var i=0; i < Game.data.buildings.length; i++) {
     var b = Game.data.buildings[i];
-    console.log(b);
-    Game.data.building_titles[b.name] = b.title;
+    Game.data.buildings_by_name[b.name] = b;
 }
 

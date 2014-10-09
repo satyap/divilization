@@ -16,7 +16,7 @@ Game.resources = {
         for(var i=0; i < length; i++) {
             var b = gd.buildings[i];
             if(gd.buildings_unlocked[b.name]) {
-                for(var i = 0; i < gd.buildings_unlocked[b.name]; i++) {
+                for(var j = 0; j < gd.buildings_unlocked[b.name]; j++) {
                     if(Game.buildings.can_consume(b)) {
                         Game.buildings.consume(b);
                         Game.buildings.produce(b);
