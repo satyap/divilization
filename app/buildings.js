@@ -4,8 +4,9 @@ Game.buildings = {
         var html = '';
 
         for(r in Game.data.buildings_unlocked) {
-           html += Game.data.buildings_by_name[r].name + ': ' + Game.data.buildings_unlocked[r];
-           html += '<a href="#" onclick="Game.buildings.buy(\'' + r + '\')">build</a>'
+            html += '<a href="#" onclick="Game.buildings.buy(\'' + r + '\')" title="build" class="button building">';
+            html += Game.data.buildings_by_name[r].name + ': ' + Game.data.buildings_unlocked[r];
+            html += '</a>'
         }
 
         list.innerHTML = html;
