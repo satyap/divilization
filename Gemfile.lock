@@ -12,6 +12,7 @@ GEM
     phantomjs (1.9.7.1)
     rack (1.5.2)
     rake (10.2.2)
+    sass (3.4.5)
     tilt (2.0.1)
 
 PLATFORMS
@@ -21,3 +22,4 @@ DEPENDENCIES
   haml
   jasmine
   rake
+  sass

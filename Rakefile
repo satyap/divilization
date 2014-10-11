@@ -11,6 +11,13 @@ hamls.each do |hamlfile|
     end
 end
 
+scss = Dir.glob("app/scss/*.scss")
+desc 'Build the CSS'
+file 'target/world.css' => scss do
+    FileUtils.rm_f 'target/world.css'
+    scss.each {|file| `sass #{file} >> target/world.css` }
+end
+
 directory 'target'
 
 desc 'Build the javascript'
@@ -19,7 +26,7 @@ file 'target/world.js' => ['target'] + Dir.glob("app/*.js") do
 end
 
 desc 'Build the game'
-task :build => ['target', 'target/world.js'] + htmls
+task :build => ['target', 'target/world.js', 'target/world.css'] + htmls
 
 desc 'Build and test the game'
 task :default => ['build', 'jasmine:ci']
